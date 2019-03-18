@@ -1,31 +1,51 @@
 import { expect } from 'chai';
+import { sum, sub, mult, div } from '../src/main.js';
 
-describe('Main', () => {
-  describe('Method A', () => {
-    context('Case 1', () => {
-        // .skip pule tal teste ou caso de teste. ele vai ser sinalizado em azul.
-        // ex.: it.skip('faz alguma parada ae', () => { });
-      it.skip('faz alguma parada ae', () => {
-
-        throw new Error('se ferrou ae');
-      });
-      
-      it('faz alguma parada ae 1.5', () => {
+describe('Calc', () => {
   
-      });
+  describe('Smoke tests', () => {
+    it('should exist the method "sum"', () => {
+      expect(sum).to.exist;
     });
 
-    // .only faz com que o npm test execute apenas tal teste. 
-    // ex.: context context.only('Case 2', () => { });
-    context('Case 2', () => {
-      it('faz alguma parada ae 2', () => {
-  
-      });
+    it('should exist the method "sub"', () => {
+      expect(sub).to.exist;
     });
 
+    it('should exist the method "mult"', () => {
+      expect(mult).to.exist;
+    });
+
+    it('should exist the method "div"', () => {
+      expect(div).to.exist;
+    });
   });
 
-  describe('Method A', () => {
+  describe('Sum', () => {
+    it('shoud return 5 when "sum(3,2)"', () => {
+      expect(sum(3,2)).to.be.equal(5);
+    });
+  });
 
+  describe('Sub', () => {
+    it('shoud return 2 when "sub(6,4)"', () => {
+      expect(sub(6,4)).to.be.equal(2);
+    });
+  });
+
+  describe('Mult', () => {
+    it('shoud return 15 when "mult(3,5)"', () => {
+      expect(mult(3,5)).to.be.equal(15);
+    });
+  });
+
+  describe('Div', () => {
+    it('should not divide when "div(12, 0)"', () => {
+      expect(div(12, 0)).to.be.equal("It's not possible to divide by zero.");
+    });
+
+    it('shoud return 6 when "div(18,3)"', () => {
+      expect(div(18,3)).to.be.equal(6);
+    });
   });
 });
